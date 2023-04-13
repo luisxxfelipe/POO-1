@@ -1,0 +1,49 @@
+# Project: Trabalho BU
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = main.o Acervo.o Livro.o Periodico.o Academico.o Pessoa.o Midias.o Diversos.o
+LINKOBJ  = main.o Acervo.o Livro.o Periodico.o Academico.o Pessoa.o Midias.o Diversos.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = "Trabalho BU.exe"
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+Acervo.o: Acervo.cpp
+	$(CPP) -c Acervo.cpp -o Acervo.o $(CXXFLAGS)
+
+Livro.o: Livro.cpp
+	$(CPP) -c Livro.cpp -o Livro.o $(CXXFLAGS)
+
+Periodico.o: Periodico.cpp
+	$(CPP) -c Periodico.cpp -o Periodico.o $(CXXFLAGS)
+
+Academico.o: Academico.cpp
+	$(CPP) -c Academico.cpp -o Academico.o $(CXXFLAGS)
+
+Pessoa.o: Pessoa.cpp
+	$(CPP) -c Pessoa.cpp -o Pessoa.o $(CXXFLAGS)
+
+Midias.o: Midias.cpp
+	$(CPP) -c Midias.cpp -o Midias.o $(CXXFLAGS)
+
+Diversos.o: Diversos.cpp
+	$(CPP) -c Diversos.cpp -o Diversos.o $(CXXFLAGS)
